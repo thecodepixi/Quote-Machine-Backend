@@ -6,6 +6,14 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Author.all.destroy_all
-Theme.all.destroy_all 
-Quote.all.destroy_all 
+themes = ['inspirational', 'wisdom', 'humor', 'love', 'success', 'motivational', 'joy', 'science']
+
+themes.each do |theme| 
+  Theme.create(name: theme)
+end 
+
+testQuote = Quote.new(content: "This is a test quote.")
+author = Author.create(name: "Emily Harber")
+testQuote.author = author 
+testQuote.theme_id = 1
+testQuote.save 
