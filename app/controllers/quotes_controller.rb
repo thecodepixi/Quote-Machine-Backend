@@ -25,6 +25,11 @@ class QuotesController < ApplicationController
     end 
   end 
 
+  def random 
+    quote = Quote.all.sample 
+    render json: QuoteSerializer.new(quote).to_serialized_json
+  end 
+
   # def destroy 
   #   quote = Quote.find_by(id: params[:id])
   #   quote.destroy 
