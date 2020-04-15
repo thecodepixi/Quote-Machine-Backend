@@ -28,6 +28,7 @@ class QuotesController < ApplicationController
   def random 
     quote = Quote.all.sample 
     render json: QuoteSerializer.new(quote).to_serialized_json
+    quote = Quote.all.sample
   end 
 
   # def destroy 
